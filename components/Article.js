@@ -86,7 +86,14 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    title: 'How to Get Popular on Twitch',
+    date: 'October 1st, 2020',
+    firstParagraph: 'look hot like Max',
+    secondParagraph: 'think smart like Max',
+    thirdParagraph: 'be a god at Call of Duty like Max'
+      }
 ];
 
 /*
@@ -103,6 +110,64 @@ const data = [
     <span class="expandButton">+</span>
   </div>
 
+*/
+
+  function articleMaker(article){
+const div1 = document.createElement('div')
+div1.classList.add('article')
+
+
+
+const h2 = document.createElement('h2')
+div1.appendChild(h2)
+h2.textContent = article.title
+
+
+const p1 = document.createElement('p')
+p1.classList.add('date')
+div1.appendChild(p1)
+p1.textContent = article.date
+
+
+
+const p2 = document.createElement('p')
+div1.appendChild(p2)
+p2.textContent = article.firstParagraph
+
+
+
+const p3 = document.createElement('p')
+div1.appendChild(p3)
+p3.textContent = article.secondParagraph
+
+
+
+const p4 = document.createElement('p')
+div1.appendChild(p4)
+p4.textContent = article.thirdParagraph
+
+
+
+
+const span = document.createElement('span')
+span.classList.add('expandButton')
+span.textContent = '+'
+div1.appendChild(span)
+
+
+span.addEventListener('click', function (event) {
+  div1.classList.toggle('article-open')
+  console.log('This is pooping off')
+});
+  const articleReader = document.querySelector('.articles')
+  articleReader.appendChild(div1)
+  return div1;
+
+
+ }
+ 
+data.map(articleMaker)
+/*
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
